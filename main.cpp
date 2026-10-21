@@ -5,31 +5,31 @@ int main()
     char letter;
     printf("Enter a numerical grade: ");
     scanf("%f", &num);
-    if (num >= 0 && num <= 59)
-    {
-        letter = 'F';
-    }
-    else if (num >= 60 && num <= 69)
-    {
-        letter = 'D';
-    }
-    else if (num >= 70 && num <= 79)
-    {
-        letter = 'C';
-    }
-    else if (num >= 80 && num <= 89)
-    {
-        letter = 'B';
-    }
-    else if (num >= 90 && num <= 100)
-    {
-        letter = 'A';
-    }
-    else
+    if (num < 0 || num > 100)
     {
         printf("numerical grade must be between 0 & 100");
-        return 0;
+        return 1;
     }
-    printf("Letter Grade: %c", letter);
+    switch ((int)num / 10)
+    {
+    case 10:
+        case 9:
+        letter = 'A';
+        break;
+    case 8:
+        letter = 'B';
+        break;
+    case 7:
+        letter = 'C';
+        break;
+    case 6:
+        letter = 'D';
+        break;
+    default:
+        letter = 'F';
+        break;
+    }
+
+    printf("Letter Grade: %c\n", letter);
     return 0;
 }
