@@ -1,20 +1,35 @@
 #include <iostream>
-
-// TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
-
 int main()
 {
-    // TIP Press <shortcut actionId="RenameElement"/> when your caret is at the <b>lang</b> variable name to see how CLion can help you rename it.
-
-    const auto lang = "C++";
-    std::cout << "Hello and welcome to " << lang << "!\n";
-
-    for (int i = 1; i <= 5; i++)
+    float num = 0;
+    char letter;
+    printf("Enter a numerical grade: ");
+    scanf("%f", &num);
+    if (num >= 0 && num <= 59)
     {
-        // TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-        std::cout << "i = " << i << std::endl;
+        letter = 'F';
     }
-
+    else if (num >= 60 && num <= 69)
+    {
+        letter = 'D';
+    }
+    else if (num >= 70 && num <= 79)
+    {
+        letter = 'C';
+    }
+    else if (num >= 80 && num <= 89)
+    {
+        letter = 'B';
+    }
+    else if (num >= 90 && num <= 100)
+    {
+        letter = 'A';
+    }
+    else
+    {
+        printf("numerical grade must be between 0 & 100");
+        return 0;
+    }
+    printf("Letter Grade: %c", letter);
     return 0;
-    // TIP See CLion help at <a href="https://www.jetbrains.com/help/clion/">jetbrains.com/help/clion/</a>. Also, you can try interactive lessons for CLion by selecting 'Help | Learn IDE Features' from the main menu.
 }
