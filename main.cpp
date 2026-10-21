@@ -1,20 +1,26 @@
 #include <iostream>
 
-// TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
+// 869148426000
+// expected output: 8
 
 int main()
 {
-    // TIP Press <shortcut actionId="RenameElement"/> when your caret is at the <b>lang</b> variable name to see how CLion can help you rename it.
-
-    const auto lang = "C++";
-    std::cout << "Hello and welcome to " << lang << "!\n";
-
-    for (int i = 1; i <= 5; i++)
+    char EAN[12];
+    int sum1 = 0;
+    int sum2 = 0;
+    printf("Enter the first 12 digits of an EAN: ");
+    scanf("%12s", EAN);
+    for (int i = 1; i < 12; i+=2)
     {
-        // TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-        std::cout << "i = " << i << std::endl;
+        int digit = EAN[i] - '0';
+        sum1 = sum1 + digit;
     }
-
+    for (int i = 0; i < 12; i+=2)
+    {
+        int digit = EAN[i] - '0';
+        sum2 = sum2 + digit;
+    }
+    int checkdig = 9 - ((((sum1 * 3) + sum2) - 1) % 10);
+    printf("Check Digit: %d\n", checkdig );
     return 0;
-    // TIP See CLion help at <a href="https://www.jetbrains.com/help/clion/">jetbrains.com/help/clion/</a>. Also, you can try interactive lessons for CLion by selecting 'Help | Learn IDE Features' from the main menu.
 }
