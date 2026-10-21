@@ -1,20 +1,24 @@
 #include <iostream>
-
-// TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
-
+//21:11
+//12:00
 int main()
 {
-    // TIP Press <shortcut actionId="RenameElement"/> when your caret is at the <b>lang</b> variable name to see how CLion can help you rename it.
-
-    const auto lang = "C++";
-    std::cout << "Hello and welcome to " << lang << "!\n";
-
-    for (int i = 1; i <= 5; i++)
+    int hour;
+    int min;
+    printf("Enter a 24-hour time (hh:mm): ");
+    scanf("%d:%d", &hour, &min);
+    if (hour <= 12)
     {
-        // TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-        std::cout << "i = " << i << std::endl;
+        printf("The current time is: %02d:%02d", hour, min);
+        return 0;
     }
-
+    else if (hour >= 12 && hour <= 23)
+    {
+        printf("The current time is: %02d:%02d PM", abs(12 - hour), min);
+    }
+    else
+    {
+        printf("The current time is: %02d:%02d AM", abs(hour - 12), min);
+    }
     return 0;
-    // TIP See CLion help at <a href="https://www.jetbrains.com/help/clion/">jetbrains.com/help/clion/</a>. Also, you can try interactive lessons for CLion by selecting 'Help | Learn IDE Features' from the main menu.
 }
